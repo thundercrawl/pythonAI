@@ -28,7 +28,7 @@ for i in animals:
 animals = ['cat', 'dog', 'monkey']
 
 #maybe the interceptor implements the codes as key,value pair or turple
-for idx, animal in enumerate(animals):
+for idx, animal in enumerate(animals):  
     print('#%d: %s' % (idx + 1, animal))
 
 
@@ -86,3 +86,29 @@ print(len(animals))       # Prints "2"
 
 #Tuples
 d = {(x, x + 1): x for x in range(10)}  
+
+
+
+#magic args
+def fuzz_multi(**args):
+    for a in args:
+        print(str(a)+'='+str(args.get(a)))
+    print("test multi args")
+
+def fuzz_multi2(*args):
+    for a in args:
+        print(a)
+
+        if type(a) in {float,int}:
+            print("correct")
+        else:
+            print("input arguments class error ,is="+str(a.__class__))
+fuzz_multi(d=1,c=2,b='m')
+fuzz_multi2(1,2,3,'str',[1,2,3],(1,2,3),{'a':1},{'1','2'})
+
+
+
+#test log with magic args
+import bv.util.logger as log
+log.log_file_path =r"c:\trace.log"
+log.loginfo("issue found 404")

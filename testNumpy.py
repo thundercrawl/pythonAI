@@ -51,3 +51,10 @@ col_r1 = a[:, 1]
 col_r2 = a[:, 1:2]
 print(col_r1, col_r1.shape)  # Prints "[ 2  6 10] (3,)"
 print(col_r2, col_r2.shape)  # Prints "[[ 2]
+
+
+import matplotlib.pyplot as plt
+a = np.array([1,2,3,4,5])
+a = np.expand_dims(a, axis=0)  # or axis=1
+plt.imshow(a)
+plt.show()
