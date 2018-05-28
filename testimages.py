@@ -18,6 +18,7 @@ print(a2)
 print(a2.dtype,a2.shape)
 print(np.arange(0,10,2))
 print(img.dtype, img.shape) 
+
 log.loginfo(img)
 log.loginfo("show image")
 plt.imshow(img)
