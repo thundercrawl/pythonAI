@@ -46,9 +46,23 @@ def listMore(more=list):
     print(more.__class__.__name__)
 
 
+
+def npm1():
+
+    a1=np.arange(24).reshape(4,3,2)
+    v1 = np.array([1, 2, 3])
+    print(v1.shape)
+    v2 = 0.5 * v1
+
+    print(np.linalg.norm(a1))
+    print(v2)
+    print(np.arccos(v1.dot(v2) / (np.linalg.norm(v1) * 
+           np.linalg.norm(v2))))
+
 #main bb here
 testdoubleStar()
 
 listMore([1,2,3,4,5])
 listMore((1,2,3,4,5))
 createD2Array()
+npm1()
