@@ -35,12 +35,11 @@ def showImageTest():
     plt.show()
 
 def build_worker_pool(queue, size):
-  workers = []
-  for _ in range(size):
-    
-    worker.start() 
-    workers.append(worker)
-  return workers
+    workers = []
+    for _ in range(size):
+        worker.start() 
+        workers.append(worker)
+    return workers
 
 def testBasicDNN():
     for i in range(5):

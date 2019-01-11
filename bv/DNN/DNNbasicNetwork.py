@@ -15,6 +15,6 @@ class DNNBasicNetwork(worker):
 
     def run(self):
         while(True):
-            seed = random.randint(1,100)
+            seed = random.randint(1,10010000000)
             log.loginfo("cal sigmoid:"+self.sigmoid(seed).__str__()+" seed:"+seed.__str__())
             time.sleep(3)
