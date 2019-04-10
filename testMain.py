@@ -7,7 +7,7 @@ import threading
 from bv.mult.worker import BasicNetWorker
 import bv.DNN.DNNbasicNetwork
 
-log.log_file_path="c:/trace.log"
+log.log_file_path="d:/trace.log"
 log.loginfo(" start loading image")
 
 
