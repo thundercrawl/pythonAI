@@ -1,4 +1,11 @@
 
+
+Pre install
+1. install pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
+Install
 1. install and configure cpu support, make sure cuda installed firstly
 Step 0: Uninstall protobuf
 
