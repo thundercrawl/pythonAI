@@ -2,12 +2,14 @@ import threading
 import bv.util.datetime as dt
 #threading.current_thread().setName("main producer #1")
 log_file_path=""
+logfile=None
 def loginfo (*log):
-    if log_file_path != "":
+    global log_file_path
+    global logfile
+    if log_file_path != "" and logfile ==None:
         print("load log trace, file path:"+log_file_path)
         logfile=open(log_file_path,"a+")
-    else:
-        print("not set log file, then no trace enabled");
+    
     logs = " ("+threading.current_thread().getName()+")"+" message:"
     for l in log:
         logs += str(l)

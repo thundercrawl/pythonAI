@@ -110,5 +110,5 @@ fuzz_multi2(1,2,3,'str',[1,2,3],(1,2,3),{'a':1},{'1','2'})
 
 #test log with magic args
 import bv.util.logger as log
-log.log_file_path =r"c:\trace.log"
+log.log_file_path =r"d:\trace.log"
 log.loginfo("issue found 404")
