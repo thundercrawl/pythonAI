@@ -8,6 +8,8 @@ testurl = "http://www.baidu.com"
 
 def taskHttp(testurl):
     starttime=time.time()*1000*1000
+    s = requests.session()
+    s.headers['keep_alive'] = False
     r= requests.get(testurl)
     log.loginfo(r.status_code)
     endtime=time.time()*1000*1000
