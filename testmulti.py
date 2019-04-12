@@ -12,6 +12,7 @@ def taskHttp(testurl):
     log.loginfo(r.status_code)
     endtime=time.time()*1000*1000
     log.loginfo("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
+    r.close()
 test.maxThreads = 10
 starttime=time.time()*1000*1000
 if(sys.argv.__len__() != 4):
