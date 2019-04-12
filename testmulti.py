@@ -14,12 +14,13 @@ def taskHttp(testurl):
     log.loginfo("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
 test.maxThreads = 10
 starttime=time.time()*1000*1000
-if(sys.argv.__len__() != 3):
-    print("Not input correct parameters,sample: testmulty.py http://www.baidu.com c:/trace.log")
+if(sys.argv.__len__() != 4):
+    print("Not input correct parameters,sample: testmulty.py http://www.baidu.com c:/trace.log 5")
     sys.exit("Error occurred")
 testurl=sys.argv[1]
 log.log_file_path = sys.argv[2]
 print("read test url:"+sys.argv[1])
-test.runTestTask(1000,taskHttp,testurl)
+taskn=sys.argv[3]
+test.runTestTask(int(taskn),taskHttp,testurl)
 endtime=time.time()*1000*1000
 print("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
