@@ -1,7 +1,7 @@
 import bv.util.logger as log
 import threading
 import time
-log.log_file_path='d://trace.log'
+
 exitFlag = 0
 interval = 1
 maxThreads=1
