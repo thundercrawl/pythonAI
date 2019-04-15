@@ -15,4 +15,4 @@ dist/
 npm-debug.log
 .idea
 .setting
-.pyc
+*.pyc

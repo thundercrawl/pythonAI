@@ -8,7 +8,8 @@ maxThreads=1
 maxloop=1000
 g_count=0
 g_next=0
-
+g_finished=0
+g_finished_lock = threading.RLock()
 g_lock = threading.RLock()
 class WorkerThread (threading.Thread):
     def __init__(self, threadID, name, counter,taskm,testurl):
@@ -33,6 +34,8 @@ class WorkerThread (threading.Thread):
 
         finally:   
             log.loginfo("Exiting " + self.name)
+            deFinished()
+
     # def submitTask(threadName, counter, delay):
     #     while counter:
     #         if exitFlag:
@@ -51,7 +54,10 @@ class TestMonitorThread(threading.Thread):
         try:
             log.loginfo("start test monitor")
             while True:
-                showCounting()
+                if (g_finished>0):
+                    showCounting()
+                else:
+                    return
             
         except Exception as e:
             log.loginfo("exception happened:"+e)
@@ -60,6 +66,8 @@ class TestMonitorThread(threading.Thread):
             pass
 def runTestTask(taskn,taskm,testurl):
     # Create new threads
+    global g_finished
+    g_finished=taskn
     maxThreads=taskn
     global interval
     thread=TestMonitorThread("TestMonitor",showCounting)
@@ -72,12 +80,33 @@ def runTestTask(taskn,taskm,testurl):
         maxThreads -=1
     
     log.loginfo ("Exiting main call")
+def exit():
+    global g_finished
+    try:
+        while(True):
+            if(g_finished):
+                time.sleep(1)
+            else:
+                print("exit Test monitor")
+                return
+        
+    except Exception as e:
+        log.loginfo("exception:"+e)
+    finally:
+        log.loginfo("exit")
 
 def increaseCounting():
     global g_count
     g_lock.acquire()
     g_count+=1
-    g_lock.release
+    g_lock.release()
+
+def deFinished():
+    global g_finished_lock
+    global g_finished
+    g_finished_lock.acquire()
+    g_finished-=1
+    g_finished_lock.release()
 
 def showCounting():
     global g_next

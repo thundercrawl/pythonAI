@@ -19,6 +19,7 @@ def taskHttp(testurl):
     endtime=time.time()*1000*1000
     log.loginfo("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
     r.close()
+    
 
 
 #main process
