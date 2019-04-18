@@ -2,6 +2,7 @@ from bv.algorithm.linearRegression import LinearRegression as ln
 
 import logging
 import bv.util.LoggerConfig as cfg
+cfg.LogLevel=logging.DEBUG
 ##
 ##'%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 #logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s -  %(message)s', datefmt='%d-%b-%y %H:%M:%S')

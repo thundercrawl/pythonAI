@@ -1,11 +1,11 @@
 
 import bv.test.MultiTest as test
-import bv.util.logger as log
+import bv.util as ut
 import time
 import requests
 import sys
 testurl = "http://www.baidu.com"
-
+logger=ut.getLog4jLogger(__name__)
 def taskHttp(testurl):
     r=None
     try:
@@ -17,16 +17,16 @@ def taskHttp(testurl):
             'Connection':'close'
         }
         r= s.get(testurl,headers=headers,timeout=1)
-        log.loginfo(r.status_code)
+        logger.info(r.status_code)
         endtime=time.time()*1000*1000
-        log.loginfo("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
+        logger.info("time passed:"+str((endtime-starttime)/1000/1000)+" seconds")
         r.close()
     except Exception as e:
-        log.loginfo("Exception e:"+e.__str__)
+        logger.info("Exception e:"+e.__str__)
     finally:
         if(r!=None):
             r.close()
-        log.loginfo("exit method taskhttp, clear resources")
+        logger.info("exit method taskhttp, clear resources")
 
 
 #main process
