@@ -21,21 +21,15 @@ def numpysum(n):
 
 
 def testdoubleStar():
-    print(2**3)
+    
+    print("2**3="+str(2**3))
 
-
-def createD1Array():
-    a = np.array([np.arange(3),np.arange(2)])
-    print(a)
-    b = np.arange(30)
-    print(b)
-
-    c = np.arange(3)
-    print(c.shape)
-
-    m = np.array([np.arange(2), np.arange(2)])
-    print(m.shape)
-    print(m)
+#narray n-dimension array
+#np.arrange(36).reshape(3,4,3) 3D array
+def createN_DArray():
+  print("------auto filled ND array-------")
+  print(np.arange(100*1*2).reshape(100,1,2))
+  print("------auto filled nD array-------")
 
 def createD2Array():
     b = np.arange(24).reshape(4,3,2)
@@ -60,9 +54,5 @@ def npm1():
            np.linalg.norm(v2))))
 
 #main bb here
-testdoubleStar()
 
-listMore([1,2,3,4,5])
-listMore((1,2,3,4,5))
-createD2Array()
-npm1()
+createN_DArray()
