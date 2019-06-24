@@ -4,7 +4,10 @@ import tensorflow as tf
 from datetime import datetime
 
 device_name = sys.argv[1]  # Choose device from cmd line. Options: gpu or cpu
-shape = (int(sys.argv[2]), int(sys.argv[2]))
+unit=5000
+iterator=int(sys.argv[2])
+print("==========>"+str(iterator))
+shape = (int(unit), int(unit))
 if device_name == "gpu":
     device_name = "/gpu:0"
 else:
@@ -17,9 +20,11 @@ with tf.device(device_name):
 
 
 startTime = datetime.now()
-with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as session:
-        result = session.run(sum_operation)
-        print(result)
+while iterator> 0:
+    iterator -=1
+    with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as session:
+            result = session.run(sum_operation)
+            print(result)
 
 # It can be hard to see the results on the terminal with lots of output -- add some newlines to improve readability.
 print("\n" * 5)
