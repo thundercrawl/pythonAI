@@ -1,3 +1,4 @@
+README.md
 setup.py
 bg.ai.egg-info/PKG-INFO
 bg.ai.egg-info/SOURCES.txt
@@ -10,12 +11,13 @@ bv/DNN/__init__.py
 bv/algorithm/__init__.py
 bv/algorithm/linearRegression.py
 bv/algorithm/svm.py
+bv/algorithm/w2v.py
 bv/mult/__init__.py
 bv/mult/worker.py
 bv/test/MultiTest.py
 bv/test/__init__.py
+bv/util/LoggerConfig.py
 bv/util/__init__.py
 bv/util/datetime.py
 bv/util/logger.py
 bv/util/mathApma.py
-test/testLinearRegression.py
