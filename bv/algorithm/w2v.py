@@ -24,11 +24,11 @@ settings = {
 
 	'window_size': 2,			# context window +- center word
 
-	'n': 10,					# dimensions of word embeddings, also refer to size of hidden layer
+	'n': 2,					# dimensions of word embeddings, also refer to size of hidden layer
 
 	'epochs': 50,				# number of training epochs
 
-	'learning_rate': 0.01		# learning rate
+	'learning_rate': 0.02		# learning rate
 
 }
 
@@ -406,7 +406,7 @@ class word2vec():
 		# x is one-hot vector for target word, shape - 9x1
 
 		# Run through first matrix (w1) to get hidden layer - 10x9 dot 9x1 gives us 10x1
-
+		#print(self.w1)
 		h = np.dot(x, self.w1)
 
 		# Dot product hidden layer with second matrix (w2) - 9x10 dot 10x1 gives us 9x1

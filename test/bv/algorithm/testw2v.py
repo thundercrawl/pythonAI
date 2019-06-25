@@ -2,12 +2,13 @@ from bv.algorithm.w2v import word2vec as word2vec
 from bv.algorithm.w2v inmport settings as settings
 #####################################################################
 
-text = "where you from"
+text = "where you from china"
 
 # Note the .lower() as upper and lowercase does not matter in our implementation
 
 # [['natural', 'language', 'processing', 'and', 'machine', 'learning', 'is', 'fun', 'and', 'exciting']]
 
+print(word)
 corpus = [[word.lower() for word in text.split()]]
 
 # Initialise object
@@ -24,7 +25,7 @@ w2v.train(training_data)
 
 # Get vector for word
 
-word = "machine"
+word = "china"
 
 vec = w2v.word_vec(word)
 
