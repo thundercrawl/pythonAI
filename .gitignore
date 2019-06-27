@@ -6,7 +6,7 @@
 .idea
 *.iml
 .xls
-.vscode/
+.vscode/settings.json
 out
 gen
 target
