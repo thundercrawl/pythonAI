@@ -326,7 +326,8 @@ class word2vec():
 				# Forward pass
 
 				# 1. predicted y using softmax (y_pred) 2. matrix of hidden layer (h) 3. output layer before softmax (u)
-
+				#print("wt:"+str(w_t))
+				#print("w_c"+str(w_c))
 				y_pred, h, u = self.forward_pass(w_t)
 
 				#########################################

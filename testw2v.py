@@ -1,5 +1,6 @@
 from bv.algorithm.w2v import word2vec as word2vec
-
+import jieba
+import bv.util.stringUtil as strUtils
 #####################################################################
 
 settings = {
@@ -13,9 +14,19 @@ settings = {
 text = "natural language processing and machine learning is fun and exciting"
 #text = "how much car is"
 # Note the .lower() as upper and lowercase does not matter in our implementation
+textcn = "欢迎来到北京大学,新鲜的小朋友,奔驰汽车G20"
 
 # [['natural', 'language', 'processing', 'and', 'machine', 'learning', 'is', 'fun', 'and', 'exciting']]
+with open("c:/temp/1.txt", 'r', encoding="utf8") as file:
+    textcn = file.read().replace('\n', '')
+rtcn = jieba.cut(textcn)
+print("object:" + str(rtcn))
 
+temp = "/".join(rtcn)
+#print(temp)
+temp = strUtils.removePunctuationMarks(temp)
+print(temp.__len__())
+'''
 corpus = [[word.lower() for word in text.split()]]
 
 # Initialise object
@@ -27,7 +38,7 @@ w2v = word2vec()
 training_data = w2v.generate_training_data(settings, corpus)
 
 # Training
-
+print(training_data)
 w2v.train(training_data)
 
 # Get vector for word
@@ -41,3 +52,4 @@ print(word, vec)
 # Find similar words
 
 w2v.vec_sim("machine", 3)
+'''
