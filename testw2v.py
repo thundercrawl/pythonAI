@@ -17,15 +17,6 @@ text = "natural language processing and machine learning is fun and exciting"
 textcn = "欢迎来到北京大学,新鲜的小朋友,奔驰汽车G20"
 
 # [['natural', 'language', 'processing', 'and', 'machine', 'learning', 'is', 'fun', 'and', 'exciting']]
-with open("c:/temp/1.txt", 'r', encoding="utf8") as file:
-    textcn = file.read().replace('\n', '')
-rtcn = jieba.cut(textcn)
-print("object:" + str(rtcn))
-
-temp = "/".join(rtcn)
-#print(temp)
-temp = strUtils.removePunctuationMarks(temp)
-print(temp.__len__())
 '''
 corpus = [[word.lower() for word in text.split()]]
 
