@@ -3,7 +3,7 @@ import bv.util.stringUtil as strUtils
 
 
 def prepare():
-    with open("C:/temp/wiki_chs/wiki_chs", 'r', encoding="utf8") as file:
+    with open("C:/temp/wiki_00/wiki_00", 'r', encoding="utf8") as file:
         for line in file:
             print(line)
 
